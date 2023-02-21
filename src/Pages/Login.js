@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form"
-
+import { Link } from "react-router-dom";
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [typePass, setTypePass] = useState(false)
@@ -32,7 +32,7 @@ const Login = () => {
                         {typePass ? 'Hide' : 'Show'}
                     </small>
                 </div>
-                <button type="submit" className="button_disabled">Log In</button>
+                <button type="submit" className="button_disabled"><Link to="/Home">Log In</Link></button>
             </form >
         </div >
     )

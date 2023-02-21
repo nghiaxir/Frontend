@@ -7,6 +7,9 @@ const Home = () => {
     const [close, setClose] = useState(false)
     const [person, setPerson] = useState(false)
     const [howhold, setHowhold] = useState(false)
+
+
+
     return (
         <div className="home">
             <div className="header">
