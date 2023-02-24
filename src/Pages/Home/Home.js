@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import Howhold from "../Function/Howhold";
 import Person from "../Function/Person";
 import Search from "../Function/Search";
-
+import Stay from "../Function/Stay";
+import Leave from "../Function/Leave";
+import Profile from "../../Components/Profile";
 const Home = () => {
     const [close, setClose] = useState(false)
     const [person, setPerson] = useState(false)
     const [howhold, setHowhold] = useState(false)
-
-
+    const [stay, setStay] = useState(false)
+    const [leave, setLeave] = useState(false)
 
     return (
         <div className="home">
@@ -20,39 +22,49 @@ const Home = () => {
                     <ul className="navbar">
                         <li className="nav_item" id="special">Quản lý nhân khẩu
                             <ul className="item">
-                                <li className="nav_item child">Thay đổi nhân khẩu</li>
-                                <li className="nav_item child">Thêm nhân khẩu</li>
-                                <li className="nav_item child">Xoá nhân khẩu</li>
-                                <li className="nav_item child">Tạm trú/Tạm vắng</li>
-                            </ul>
-                        </li>
-                        <li className="nav_item" id="special">Quản lý hộ khẩu
-                            <ul className="item">
-                                <li className="nav_item child">Thay đổi hộ khẩu</li>
-                                <li className="nav_item child">Thêm hộ khẩu</li>
-                                <li className="nav_item child">Xoá hộ khẩu</li>
-                            </ul>
-                        </li>
-                        <li className="nav_item">Quản lý cấp thưởng</li>
-                        <li className="nav_item special" id="special">Tìm kiếm
-                            <ul className="item">
                                 <li className="nav_item child"
                                     onClick={() => {
                                         setClose(true)
                                         setPerson(true)
                                         setHowhold(false)
-                                    }}
-                                >Nhân khẩu</li>
+                                        setStay(false)
+                                        setLeave(false)
+
+                                    }}>Thông tin nhân khẩu</li>
+                                <li className="nav_item child">Thêm nhân khẩu</li>
+                                <li className="nav_item child"
+                                    onClick={() => {
+                                        setClose(true)
+                                        setHowhold(false)
+                                        setPerson(false)
+                                        setStay(true)
+                                        setLeave(false)
+                                    }}>Tạm trú</li>
+                                <li className="nav_item child"
+                                    onClick={() => {
+                                        setClose(true)
+                                        setHowhold(false)
+                                        setPerson(false)
+                                        setStay(false)
+                                        setLeave(true)
+                                    }}>Tạm vắng</li>
+                            </ul>
+                        </li>
+                        <li className="nav_item" id="special">Quản lý hộ khẩu
+                            <ul className="item">
                                 <li className="nav_item child"
                                     onClick={() => {
                                         setClose(true)
                                         setHowhold(true)
                                         setPerson(false)
-                                    }}
-                                >Hộ khẩu</li>
-                                <li className="nav_item child">Tạm trú/tạm vắng</li>
+                                        setStay(false)
+                                        setLeave(false)
+                                    }}>Thông tin hộ khẩu</li>
+                                <li className="nav_item child">Thêm hộ khẩu</li>
+                                <li className="nav_item child">Xoá hộ khẩu</li>
                             </ul>
                         </li>
+                        <li className="nav_item">Quản lý cấp thưởng</li>
                     </ul>
                 </div>
                 <div className="work">
@@ -62,6 +74,8 @@ const Home = () => {
                                 setClose(false)
                                 setPerson(false)
                                 setHowhold(false)
+                                setStay(false)
+                                setLeave(false)
                             }}
                         >
                             &times;
@@ -71,13 +85,15 @@ const Home = () => {
                         : <div></div>}
                     {howhold ? <Howhold />
                         : <div></div>}
+                    {stay ? <Stay />
+                        : <div></div>}
+                    {leave ? <Leave />
+                        : <div></div>}
                 </div>
-
-                <Search />
-
+                <div className="left">
+                    <Search />
+                </div>
             </div>
-
-
         </div >
     )
 }

@@ -9,8 +9,7 @@ const Howhold = () => {
     }
     useEffect(() => {
         loaddata()
-    }, [])
-    console.log(howholdLists);
+    }, [howholdLists])
     return (
         <div className="container">
             <table className="custom table table-bordered table-striped">

@@ -1,17 +1,19 @@
-import { data } from 'jquery'
 import React, { useState, useEffect } from 'react'
-
+import Profile from '../../Components/Profile'
 const Person = () => {
     const [personLists, setPersonLists] = useState([])
+    const [data, setData] = useState([])
+    const [profile, setProfile] = useState(false)
+
     const loaddata = async () => {
-        const data = await fetch(`http://localhost:8080/api/nhankhau/`)
+        const data = await fetch(`http://localhost:8080/api/nhankhau/cancuoc`)
             .then((response) => response.json())
         setPersonLists(data)
     }
     useEffect(() => {
         loaddata()
-    }, [])
-    console.log(personLists);
+    }, [personLists])
+
     return (
         <div className="container">
             <table className="custom table table-bordered table-striped">
@@ -31,12 +33,16 @@ const Person = () => {
                 <tbody id="myTable">
                     {
                         personLists.map((person, index) => (
-                            <tr className="data">
+                            <tr className="data"
+                                onClick={() => {
+                                    setData(person)
+                                    setProfile(true)
+                                }}>
                                 <td>{person.id}</td>
                                 <td>{person.hoTen}</td>
                                 <td>{person.gioiTinh}</td>
                                 <td>{person.ngaySinh}</td>
-                                <td>{person.idcc}</td>
+                                <td>{person.canCuoc}</td>
                                 <td>{person.nguyenQuan}</td>
                                 <td>{person.danToc}</td>
                                 <td>{person.quocTich}</td>
@@ -47,6 +53,7 @@ const Person = () => {
                         ))
                     }
                 </tbody>
+                {profile ? < Profile data={data} setProfile={setProfile} /> : <div></div>}
             </table>
         </div>
     )

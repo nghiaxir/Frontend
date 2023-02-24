@@ -14,7 +14,7 @@
 }
 
 .work {
-    width: 79%;
+    width: 70%;
     margin: 5px;
     position: relative;
 }
@@ -28,4 +28,8 @@
     text-align: center;
     cursor: pointer;
     border: 1px solid #000;
+}
+
+.left {
+    width: 20%;
 }

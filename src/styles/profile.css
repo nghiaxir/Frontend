@@ -1,0 +1,33 @@
+.wrap_profile {
+    font-size: 18px;
+    background-color: #85cad6;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 18%;
+    position: fixed;
+    right: 0;
+    top: 20%
+}
+
+.wrap_profile img {
+    margin-top: 10px;
+    background-color: white;
+    width: 50%;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.wrap_profile .close_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 8px;
+
+}
