@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
+import HowholdProfile from "../../Components/HowholdProfile";
 
 const Howhold = () => {
+
     const [howholdLists, setHowholdLists] = useState([])
+    const [data, setData] = useState([])
+    const [isHowhold, setIsHowhold] = useState(false)
+
     const loaddata = async () => {
         const data = await fetch(`http://localhost:8080/api/hokhau/chuho`)
             .then((response) => response.json())
         setHowholdLists(data)
     }
+
     useEffect(() => {
         loaddata()
     }, [howholdLists])
+
     return (
         <div className="container">
             <table className="custom table table-bordered table-striped">
@@ -25,7 +32,11 @@ const Howhold = () => {
                 <tbody id="myTable">
                     {
                         howholdLists.map((howhold, index) => (
-                            <tr className="data">
+                            <tr className="data"
+                                onClick={() => {
+                                    setData(howhold)
+                                    setIsHowhold(true)
+                                }}>
                                 <td>{howhold.id}</td>
                                 <td>{howhold.hoTen}</td>
                                 <td>{howhold.canCuoc}</td>
@@ -37,6 +48,7 @@ const Howhold = () => {
                         ))
                     }
                 </tbody>
+                {isHowhold ? <HowholdProfile data={data} setIsHowhold={setIsHowhold} /> : <div></div>}
             </table>
         </div>
     )

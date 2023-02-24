@@ -5,12 +5,14 @@ import Search from "../Function/Search";
 import Stay from "../Function/Stay";
 import Leave from "../Function/Leave";
 import Profile from "../../Components/Profile";
+import AddPer from "../Function/AddPer";
 const Home = () => {
     const [close, setClose] = useState(false)
     const [person, setPerson] = useState(false)
     const [howhold, setHowhold] = useState(false)
     const [stay, setStay] = useState(false)
     const [leave, setLeave] = useState(false)
+    const [addPer, setAddPer] = useState(false)
 
     return (
         <div className="home">
@@ -29,9 +31,19 @@ const Home = () => {
                                         setHowhold(false)
                                         setStay(false)
                                         setLeave(false)
+                                        setAddPer(false)
 
                                     }}>Thông tin nhân khẩu</li>
-                                <li className="nav_item child">Thêm nhân khẩu</li>
+                                <li className="nav_item child"
+                                    onClick={() => {
+                                        setClose(true)
+                                        setPerson(false)
+                                        setHowhold(false)
+                                        setStay(false)
+                                        setLeave(false)
+                                        setAddPer(true)
+                                    }}
+                                >Thêm nhân khẩu</li>
                                 <li className="nav_item child"
                                     onClick={() => {
                                         setClose(true)
@@ -39,6 +51,7 @@ const Home = () => {
                                         setPerson(false)
                                         setStay(true)
                                         setLeave(false)
+                                        setAddPer(false)
                                     }}>Tạm trú</li>
                                 <li className="nav_item child"
                                     onClick={() => {
@@ -47,6 +60,8 @@ const Home = () => {
                                         setPerson(false)
                                         setStay(false)
                                         setLeave(true)
+                                        setAddPer(false)
+
                                     }}>Tạm vắng</li>
                             </ul>
                         </li>
@@ -59,6 +74,8 @@ const Home = () => {
                                         setPerson(false)
                                         setStay(false)
                                         setLeave(false)
+                                        setAddPer(false)
+
                                     }}>Thông tin hộ khẩu</li>
                                 <li className="nav_item child">Thêm hộ khẩu</li>
                                 <li className="nav_item child">Xoá hộ khẩu</li>
@@ -76,6 +93,8 @@ const Home = () => {
                                 setHowhold(false)
                                 setStay(false)
                                 setLeave(false)
+                                setAddPer(false)
+
                             }}
                         >
                             &times;
@@ -89,11 +108,13 @@ const Home = () => {
                         : <div></div>}
                     {leave ? <Leave />
                         : <div></div>}
+                    {addPer ? <AddPer />
+                        : <div></div>}
                 </div>
                 <div className="left">
                     <Search />
                 </div>
-            </div>
+            </div >
         </div >
     )
 }
