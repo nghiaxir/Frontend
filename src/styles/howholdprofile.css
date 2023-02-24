@@ -1,10 +1,10 @@
 .wrap_hhprofile {
     position: fixed;
-    top: 0;
+    top: 10%;
+    left: 10%;
     background-color: #0dcaf0;
-    width: 80%;
+    width: 75%;
     font-size: 16px;
-    height: 70vh;
 }
 
 .wrap_header {
@@ -13,10 +13,11 @@
     margin: 2px;
     border-radius: 5px;
     background-color: aquamarine;
+    border: 1px solid #000;
 }
 
 .wrap_header img {
-    width: 70%;
+    width: 40%;
     height: auto;
     border: 1px solid #000;
     border-radius: 10%;
@@ -31,5 +32,6 @@
 }
 
 .table1 {
-    width: 100%;
+    width: 99%;
+    margin-left: 5px;
 }

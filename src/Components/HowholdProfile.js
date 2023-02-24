@@ -3,11 +3,10 @@ import House from "../asset/house.png"
 const HowholdProfile = ({ data, setIsHowhold }) => {
     const [giadinh, setGiadinh] = useState([])
     const loaddata = async () => {
-        const data_main = await fetch(`http://localhost:8080/api/giadinh/BK000`)
+        const data_main = await fetch(`http://localhost:8080/api/giadinh/${data.idGiaDinh}`)
             .then((response) => response.json())
         setGiadinh(data_main)
     }
-    // console.log(giadinh);
     useEffect(() => {
         loaddata()
     }, [giadinh])
@@ -23,25 +22,25 @@ const HowholdProfile = ({ data, setIsHowhold }) => {
                     <img src={House} alt="asnh ho khau"></img>
                 </div>
                 <div className="base_hhin4">
-                    <div style={{ margin: '1px' }}>Mã khu vực: {data.idKhuVuc}</div>
-                    <div style={{ margin: '1px' }}>Địa chỉ: {data.diaChi}</div>
-                    <div style={{ margin: '1px' }}>Ngày tạo: {data.ngayTao}</div>
+                    <div style={{ margin: '3px' }}>Mã khu vực: {data.idKhuVuc}</div>
+                    <div style={{ margin: '3px' }}>Địa chỉ: {data.diaChi}</div>
+                    <div style={{ margin: '3px' }}>Ngày tạo: {data.ngayTao}</div>
                 </div>
             </div>
-            <div>Thông tin các thành viên trong hộ khẩu</div>
+            <div style={{ fontSize: "20px", marginLeft: "5px" }}>Thông tin các thành viên trong hộ khẩu</div>
 
             <div className="table1">
                 <table className="custom table table-bordered table-striped">
                     <tr className="field">
                         <th>STT</th>
                         <th>Họ và tên</th>
-                        <th>Số Căn cước</th>
                         <th>Ngày sinh</th>
                         <th>Giới tính</th>
                         <th>Nghề nghiệp</th>
                         <th>Địa chỉ hiện tại</th>
                         <th>Quan hệ với chủ hộ</th>
-                        <th>Xoá</th>
+                        <th
+                        >Xoá</th>
                     </tr>
                     <tbody id="myTable">
                         {
@@ -54,13 +53,15 @@ const HowholdProfile = ({ data, setIsHowhold }) => {
                                 >
                                     <td>{thanhvien.id}</td>
                                     <td>{thanhvien.hoTen}</td>
-                                    <td>000000000000</td>
                                     <td>{thanhvien.ngaySinh}</td>
                                     <td>Nam</td>
                                     <td>{thanhvien.ngheNghiep}</td>
                                     <td>Hà Nội</td>
                                     <td>{thanhvien.quanHeVoiChuHo}</td>
-                                    <td>&times;</td>
+                                    <td
+                                        onClick={() => {
+                                            console.log(thanhvien.id);
+                                        }}>&times;</td>
                                 </tr>
                             ))
                         }
