@@ -18,6 +18,41 @@ const Profile = ({ data, setProfile }) => {
                 <div>Địa chỉ thường trú: {data.diaChiThuongTru}</div>
                 <div>Địa chỉ hiện tại: {data.diaChiHienTai} </div>
             </div>
+            <div
+                style={{
+                    border: "1px solid #000",
+                    width: "100%",
+                    textAlign: "center",
+                    borderRadius: '5px',
+                    backgroundColor: 'green',
+                    color: 'white',
+                    cursor: "pointer"
+                }}>Chỉnh sửa</div>
+            <div
+                style={{
+                    marginTop: "2px",
+                    border: "1px solid #000",
+                    width: "100%",
+                    textAlign: "center",
+                    borderRadius: '5px',
+                    backgroundColor: 'red',
+                    color: 'white',
+                    cursor: "pointer"
+                }}
+                onClick={() => {
+                    const requestOptions = {
+                        method: 'DELETE',
+                        redirect: 'follow'
+                    };
+
+                    fetch(`http://localhost:8080/api/nhankhau/${data.id}`, requestOptions)
+                        .then(response => response.text())
+                        .then(() => {
+                            setProfile(false)
+                        })
+                        .catch(error => console.log('error', error));
+                }}
+            >Xoá</div>
         </div>
     )
 }

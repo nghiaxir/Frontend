@@ -29,6 +29,7 @@ const Person = () => {
                     <th>Nghề Nghiệp</th>
                     <th>Địa chỉ hiện tại</th>
                     <th>Địa chỉ thường trú</th>
+
                 </tr>
                 <tbody id="myTable">
                     {
@@ -49,12 +50,23 @@ const Person = () => {
                                 <td>{person.ngheNghiep}</td>
                                 <td>{person.diaChiHienTai}</td>
                                 <td>{person.diaChiThuongTru}</td>
+
                             </tr>
                         ))
                     }
                 </tbody>
                 {profile ? < Profile data={data} setProfile={setProfile} /> : <div></div>}
             </table>
+            <div style={{
+                fontSize: "20px",
+                color: "blue",
+                backgroundColor: "#91edde",
+                justifyContent: 'center',
+                width: '15%',
+                marginLeft: '42%',
+                minWidth: '170px',
+                padding: '2px',
+            }}>Thêm nhân khẩu</div>
         </div>
     )
 }

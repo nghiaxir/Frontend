@@ -5,14 +5,14 @@ import Search from "../Function/Search";
 import Stay from "../Function/Stay";
 import Leave from "../Function/Leave";
 import Profile from "../../Components/Profile";
-import AddPer from "../Function/AddPer";
+import Present from "../Function/Present";
 const Home = () => {
     const [close, setClose] = useState(false)
     const [person, setPerson] = useState(false)
     const [howhold, setHowhold] = useState(false)
     const [stay, setStay] = useState(false)
     const [leave, setLeave] = useState(false)
-    const [addPer, setAddPer] = useState(false)
+    const [present, setPresent] = useState(false)
 
     return (
         <div className="home">
@@ -31,19 +31,8 @@ const Home = () => {
                                         setHowhold(false)
                                         setStay(false)
                                         setLeave(false)
-                                        setAddPer(false)
-
+                                        setPresent(false)
                                     }}>Thông tin nhân khẩu</li>
-                                <li className="nav_item child"
-                                    onClick={() => {
-                                        setClose(true)
-                                        setPerson(false)
-                                        setHowhold(false)
-                                        setStay(false)
-                                        setLeave(false)
-                                        setAddPer(true)
-                                    }}
-                                >Thêm nhân khẩu</li>
                                 <li className="nav_item child"
                                     onClick={() => {
                                         setClose(true)
@@ -51,7 +40,7 @@ const Home = () => {
                                         setPerson(false)
                                         setStay(true)
                                         setLeave(false)
-                                        setAddPer(false)
+                                        setPresent(false)
                                     }}>Tạm trú</li>
                                 <li className="nav_item child"
                                     onClick={() => {
@@ -60,28 +49,29 @@ const Home = () => {
                                         setPerson(false)
                                         setStay(false)
                                         setLeave(true)
-                                        setAddPer(false)
-
+                                        setPresent(false)
                                     }}>Tạm vắng</li>
                             </ul>
                         </li>
-                        <li className="nav_item" id="special">Quản lý hộ khẩu
-                            <ul className="item">
-                                <li className="nav_item child"
-                                    onClick={() => {
-                                        setClose(true)
-                                        setHowhold(true)
-                                        setPerson(false)
-                                        setStay(false)
-                                        setLeave(false)
-                                        setAddPer(false)
-
-                                    }}>Thông tin hộ khẩu</li>
-                                <li className="nav_item child">Thêm hộ khẩu</li>
-                                <li className="nav_item child">Xoá hộ khẩu</li>
-                            </ul>
+                        <li className="nav_item" id="special"
+                            onClick={() => {
+                                setClose(true)
+                                setHowhold(true)
+                                setPerson(false)
+                                setStay(false)
+                                setLeave(false)
+                                setPresent(false)
+                            }}>Quản lý hộ khẩu
                         </li>
-                        <li className="nav_item">Quản lý cấp thưởng</li>
+                        <li className="nav_item"
+                            onClick={() => {
+                                setClose(true)
+                                setHowhold(false)
+                                setPerson(false)
+                                setStay(false)
+                                setLeave(false)
+                                setPresent(true)
+                            }}>Quản lý cấp thưởng</li>
                     </ul>
                 </div>
                 <div className="work">
@@ -93,8 +83,7 @@ const Home = () => {
                                 setHowhold(false)
                                 setStay(false)
                                 setLeave(false)
-                                setAddPer(false)
-
+                                setPresent(false)
                             }}
                         >
                             &times;
@@ -108,7 +97,7 @@ const Home = () => {
                         : <div></div>}
                     {leave ? <Leave />
                         : <div></div>}
-                    {addPer ? <AddPer />
+                    {present ? <Present />
                         : <div></div>}
                 </div>
                 <div className="left">

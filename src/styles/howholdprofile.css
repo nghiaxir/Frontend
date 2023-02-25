@@ -1,9 +1,9 @@
 .wrap_hhprofile {
-    position: fixed;
+    position: absolute;
     top: 10%;
     left: 10%;
     background-color: #0dcaf0;
-    width: 75%;
+    width: 85%;
     font-size: 16px;
 }
 

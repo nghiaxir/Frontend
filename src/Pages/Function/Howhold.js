@@ -50,6 +50,16 @@ const Howhold = () => {
                 </tbody>
                 {isHowhold ? <HowholdProfile data={data} setIsHowhold={setIsHowhold} /> : <div></div>}
             </table>
+            <div style={{
+                fontSize: "20px",
+                color: "blue",
+                backgroundColor: "#91edde",
+                justifyContent: 'center',
+                width: '15%',
+                marginLeft: '42%',
+                minWidth: '170px',
+                padding: '2px',
+            }}>Thêm hộ khẩu</div>
         </div>
     )
 }
